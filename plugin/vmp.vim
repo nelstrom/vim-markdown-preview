@@ -45,7 +45,7 @@ function! PreviewMKD()
     LAYOUT
 
 
-    unless File.extname(name) =~ /\.(md|mkd|markdown)/
+    unless File.extname(name) =~ /\.(md|mdwn|mkd|markdown)/
       VIM.message('This file extension is not supported for Markdown previews')
     else
       file = File.join('/tmp', File.basename(name) + '.html')
