@@ -22,6 +22,14 @@ $HOME/.vim/plugin/
 
     sh install.sh
 
+## Configuration
+
+* `g:markdown_extensions` - default: `["md", "mkd", "markdown", "mdwn"]`
+    
+    Sets the filename extensions that will be rendered.
+
+        let g:markdown_extensions=["md", "markdown", "txt"]
+
 ## Usage
 
 Send vim the command `:Mm` for a preview of your markdown document.  

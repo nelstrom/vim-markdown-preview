@@ -44,9 +44,14 @@ function! PreviewMKD()
     </html>
     LAYOUT
 
-
-    unless File.extname(name) =~ /\.(md|mdwn|mkd|markdown)/
-      VIM.message('This file extension is not supported for Markdown previews')
+    set_extensions = VIM.evaluate('g:markdown_extensions')
+    if defined? set_extensions
+        extensions_re = set_extensions.join('|')
+    else
+        extensions_re = 'md|mkd|markdown|mdwn'
+    end
+    unless File.extname(name) =~ /\.(#{extensions_re})/
+      VIM.message('This file extension is not supported for Markdown previews. Add it to the g:markdown_extensions list to enable.')
     else
       file = File.join('/tmp', File.basename(name) + '.html')
       File.open('%s' % [ file ], 'w') { |f| f.write(layout) }
