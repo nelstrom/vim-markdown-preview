@@ -53,6 +53,7 @@ function! PreviewMKD()
       Vim.command("silent !open '%s'" % [ file ])
     end
 RUBY
+:redraw!
 endfunction
 
 :command! Mm :call PreviewMKD()
